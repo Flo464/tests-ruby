@@ -6,9 +6,13 @@ def shout (string)
 	return string.upcase
 end
 
-def repeat (string, *number)
-	return (string + " ") * (number-1) + string 
-end 
+def repeat (truc, n = 2, *p)
+    if p != nil 
+        return (truc + " ")*(n - 1) + truc 
+    else 
+        return (truc + " ")*(p - 1) + truc
+    end 
+end  
 
 def start_of_word(string, n)
 	return string[0..(n-1)]
@@ -19,11 +23,6 @@ def first_word (string)
 end 
 
 def titleize (string)
-	string.split(" ").each |item| do 
-		if item.length >= 4
-			item.upcase[0]
-		end
-	end
-	return string.join 
-
-end
+	nocaps = "and", "or", "the"
+	return string.capitalize.split(" ").map { |word| nocaps.include?(word) ? word : word.capitalize }.join(" ")
+end 

@@ -19,5 +19,11 @@ def first_word (string)
 end 
 
 def titleize (string)
-	return string.split(" ").each{|item| item.length >= 4}.upcase[0].join
+	string.split(" ").each |item| do 
+		if item.length >= 4
+			item.upcase[0]
+		end
+	end
+	return string.join 
+
 end
